@@ -33,12 +33,20 @@ body {
     text-align:left;
 } 
 
-.value {
+.result {
+    display: grid;
     width: 500px;
     border: 15px solid green;
     padding: 100px;
     margin: 25px auto 0px auto;
     text-align: center;
+    font-size: 50px;
 }
 
+.buttons {
+    margin-top: 10px;
+    display: grid;
+    align-content: flex-end;
+    grid-gap: 5px;
+}
 
