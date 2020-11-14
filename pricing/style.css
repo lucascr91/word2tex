@@ -1,0 +1,26 @@
+* {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.main_text {
+    text-align: justify;
+}
+
+.budget-grid {
+    display: grid;
+    grid-template-columns: repeat(2,600px);
+}
+
+.value {
+        width: 300px;
+        border: 15px solid green;
+        padding: 100px;
+        margin: 100px;
+}
+
+.options {
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:left;
+}
