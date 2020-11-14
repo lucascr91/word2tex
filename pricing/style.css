@@ -1,26 +1,44 @@
 * {
-    margin-left: 100px;
-    margin-right: 100px;
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 10px;
+    width: 1200px;
+    margin: 25px auto 75px auto;
 }
 
 .main_text {
+    margin: 25px auto 0px auto;
+    width: 1200px;
     text-align: justify;
+    align-items: center;
+    align-content: center;
 }
 
 .budget-grid {
     display: grid;
-    grid-template-columns: repeat(2,600px);
-}
-
-.value {
-        width: 300px;
-        border: 15px solid green;
-        padding: 100px;
-        margin: 100px;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(2, 600px);
 }
 
 .options {
+    display: grid;
+    width: 600px;
     margin-top:auto;
     margin-bottom:auto;
     text-align:left;
+} 
+
+.value {
+    width: 500px;
+    border: 15px solid green;
+    padding: 100px;
+    margin: 25px auto 0px auto;
+    text-align: center;
 }
+
+
