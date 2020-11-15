@@ -1,8 +1,14 @@
+
 * {
     box-sizing: border-box;
-    font-family: Gotham Rounded, sans-serif;
+    font-family: sans-serif;
     font-weight: normal;
 }
+
+@font-face {
+    font-family: DMSans-BoldItalic;
+    src: url(/home/lucas/automata/word2tex/pricing/dmsans/DMSans-BoldItalic.ttf);
+  }
 
 body {
     padding: 10px;
@@ -16,6 +22,8 @@ body {
     text-align: justify;
     align-items: center;
     align-content: center;
+    font-family: sans-serif;
+    font-weight: normal;
 }
 
 .budget-grid {
@@ -34,12 +42,16 @@ body {
 } 
 
 .result {
-    display: grid;
-    width: 500px;
-    border: 15px solid green;
-    padding: 100px;
-    margin: 25px auto 0px auto;
+    width: 400px;
+    border: 15px solid rgba(11,156,49, 0.75);
+    height: 400px;
+    border-radius: 50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    padding: 150px 50px 100px 50px;
+    margin: 20px auto 0px auto;
     text-align: center;
+    font-family: DMSans-BoldItalic;
     font-size: 50px;
 }
 

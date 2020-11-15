@@ -1,42 +1,59 @@
+class Choice{
+    constructor(n_laudas, kind_work, grammar, format_general, format_ref, style, kind_doc){
+        this.n_laudas=n_laudas
+        this.kind_work=kind_work
+        this.grammar=grammar
+        this.format_general=format_general
+        this.format_ref=format_ref
+        this.style=style
+        this.kind_doc=kind_doc
+
+    }
+    page_value(){
+        let doc_array=["monographic", "dissertation", "thesis","paper"]
+        let add_array=[0,2,4,6]
+        for (i=0; i<4;) {
+            if (this.kind_work==doc_array){
+                if (this.style==false) {
+                    return 6+add_array[i]
+                }
+                else if (this.style=="abnt") {
+                    return 7+add_array[i]
+                }
+                else if (this.style=="chicago_notes" || this.style=="chicago_author") {
+                    return 9+add_array[i]
+                }
+            } else {
+                i++
+            }
+        }
+    }
+}
+
+document.querySelector('.result').innerHTML = "R$ 0,00"
+
+let pages=document.getElementById("pages").value
+let kind=document.getElementById("work").value
+let grammar=document.getElementById("grammar").value
+let f_ref=document.getElementById("fix_ref").value
+let style_ref=document.getElementById("style_ref").value
+
 function reset() {
-    document.querySelector('.result').innerHTML = "0,00"
+    document.querySelector('.result').innerHTML = "R$ 0,00"
+    pages=document.getElementById("pages").value="---"
+    kind=document.getElementById("arbeit").value="---"
 }
-
-for (k in fields) {
-    console.log(k)
-}
-
 
 function  budget() {
-    var kind=document.getElementById("arbeit").value
-    var pages=document.getElementById("pages").value
-    var grammar=document.getElementById("grammar").value
-    var f_ref=document.getElementById("fix_ref").value
-    var f_all=document.getElementById("fix_all").value
-    var style=document.getElementById("style_ref").value
-    var doc=document.getElementById("kind_doc").value
-
-    var fields=[kind,pages, grammar, f_ref, f_all, style, doc]
-
-    if (pages=='' || kind=='') {
+    if (isNaN(parseInt(pages)) || kind=='') {
         alert("Ao menos 3 campos devem ser preenchidos. Sendo \"Número de laudas\" e \"Tipo de Trabalho\" sempre obrigatórios.")
 
     } else {
-        if (kind=="monographics") {
-            document.querySelector('.result').innerHTML = 2*pages
-        }
-        else if (kind=="dissertation") {
-            document.querySelector('.result').innerHTML = 3*pages
-        }
-        else if (kind=="thesis") {
-            document.querySelector('.result').innerHTML = 4*pages
-        }
-        else if (kind=="article") {
-            document.querySelector('.result').innerHTML = 5*pages
-        }
-        else {
-            document.querySelector('.result').innerHTML = "Something goes wrong"
-        }
+        let user_selection= new Choice(n_laudas=pages, 
+            kind_work=kind,grammar=false,format_general=false,
+            format_ref=f_ref, style=style_ref)
+
+        return user_selection.n_laudas*user_selection.page_value()
     }
 }
 

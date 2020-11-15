@@ -20,14 +20,14 @@
           <!-- pages -->
           <form>
             <label for="pages">Número de laudas:</label><br>
-            <input type="text" id="pages" name="pages" placeholder="---" required><br>
+            <input type="text" id="pages" name="pages" placeholder="---"><br>
           </form> 
 
           <!-- kind of work -->
-          <label for="arbeit">Tipo de Trabalho</label>
-          <select id="arbeit" name="arbeit" required>
+          <label for="work">Tipo de Trabalho</label>
+          <select id="work" name="work">
             <option value="">---</option>
-            <option value="monographics">Monografia</option>
+            <option value="monographic">Monografia</option>
             <option value="dissertation">Dissertação</option>
             <option value="thesis">Tese</option>
             <option value="article">Artigo</option>
@@ -41,17 +41,18 @@
             <option value="no">Não</option>
           </select> 
 
-          <!-- formar ref? -->
-          <label for="fix_ref">Formatar referências:</label>
-          <select id="fix_ref" name="fix_ref">
+          <!-- format all? -->
+          <label for="fix_all">Formatação geral:</label>
+          <select id="fix_all" name="fix_all">
             <option value="nothing">---</option>
             <option value="yes">Sim</option>
             <option value="no">Não</option>
           </select> 
 
-          <!-- format all? -->
-          <label for="fix_all">Formatação geral:</label>
-          <select id="fix_all" name="fix_all">
+
+          <!-- formar ref? -->
+          <label for="fix_ref">Formatar referências:</label>
+          <select id="fix_ref" name="fix_ref">
             <option value="nothing">---</option>
             <option value="yes">Sim</option>
             <option value="no">Não</option>
@@ -68,14 +69,15 @@
           </select> 
 
           <!-- style ref -->
-          <label for="kind_doc">Tipo de Documento:</label>
-          <select id="kind_doc" name="kind_doc">
+          <label for="doc">Tipo de Documento:</label>
+          <select id="doc" name="doc">
             <option value="nothing">---</option>
             <option value="latex">Latex</option>
             <option value="msword">Microsoft Word</option>
           </select> 
     </div>
             <div class="result"> 
+              R$ 0,00
             </div>
             <div class="buttons">
               <button onclick="budget()"> Calcular </button>
