@@ -12,8 +12,9 @@ class Choice{
     page_value(){
         let doc_array=["monographic", "dissertation", "thesis","paper"]
         let add_array=[0,2,4,6]
+        let i;
         for (i=0; i<4;) {
-            if (this.kind_work==doc_array){
+            if (this.kind_work==doc_array[i]){
                 if (this.style==false) {
                     return 6+add_array[i]
                 }
@@ -32,28 +33,31 @@ class Choice{
 
 document.querySelector('.result').innerHTML = "R$ 0,00"
 
-let pages=document.getElementById("pages").value
-let kind=document.getElementById("work").value
-let grammar=document.getElementById("grammar").value
-let f_ref=document.getElementById("fix_ref").value
-let style_ref=document.getElementById("style_ref").value
+
 
 function reset() {
     document.querySelector('.result').innerHTML = "R$ 0,00"
     pages=document.getElementById("pages").value="---"
-    kind=document.getElementById("arbeit").value="---"
+    kind=document.getElementById("work").value="---"
 }
 
 function  budget() {
+    let pages=document.getElementById("pages").value
+    let kind=document.getElementById("work").value
     if (isNaN(parseInt(pages)) || kind=='') {
         alert("Ao menos 3 campos devem ser preenchidos. Sendo \"Número de laudas\" e \"Tipo de Trabalho\" sempre obrigatórios.")
 
     } else {
+        let grammar=document.getElementById("grammar").value
+        let f_ref=document.getElementById("fix_ref").value
+        let style_ref=document.getElementById("style_ref").value
+
         let user_selection= new Choice(n_laudas=pages, 
             kind_work=kind,grammar=false,format_general=false,
-            format_ref=f_ref, style=style_ref)
-
-        return user_selection.n_laudas*user_selection.page_value()
+            format_ref=f_ref, style=false)
+        let laudas=user_selection.n_laudas
+        let cost=user_selection.page_value()
+        return document.querySelector('.result').innerHTML = "R$" + " " + laudas*cost + ",00"
     }
 }
 
