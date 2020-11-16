@@ -6,13 +6,41 @@
     <title>Pricing</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <!-- script for allow math formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="main_text">
-        <h1>Introdução</h1>
+        <h1>Budget tool</h1>
         <p>
-            One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops
+          This tool is a result of my effort to create a system that make the precification of our services easier, faster and, more importantly, consistent. It was primarily think as tool for internal user, since the one-to-one precification creates an opportunity for third degree price discrimination that we should explore as the life span of this business is necessary limited.
         </p>
+        <p>
+          It's important to note that our precification will be based on the cost of production determined by the technology of our more likely competitor. In other words, our price is not a reflection of how hard is for us to complete some task but rather it is a reflection of how hard is to complete a task for the average person. That's why there is a heavy price associated with LaTex formatting, for example. Althought create LaTex document will be standard procedure made by our software, the average person will have a hell of work to create a good TEX document manually.
+        </p>
+
+        <p>
+          Last but not least, here is the formula used to create this budget app:
+
+          $$ P_{i} = [(\alpha_{i} + grammar + form\_gen)\cdot n]\cdot (1+L)\cdot (1+R)$$
+
+          Where: <br> <br>
+           <i>i</i>: is the kind of input document. <br> <br>
+           \(\alpha_{i}\): constant associated with the kind of document. <br> <br>
+           \(grammar\): cost of grammar correction per page. <br> <br>
+           \(form\_gen\): cost of general formatting per page. <br> <br>
+           <i>L, R</i>: mark-up of LaTex document and reference style, respectively.
+        </p>
+
+        <p>
+          The baseline case is the standard formatting of a monograph with MS Word as output document and ABNT as the references style. In this special case the parameters \(\alpha_{i}\), <i>L</i>, and <i>R</i> are set to zero. Otherwise, \(\alpha_{i}\) can be 2 (dissertation), 4 (thesis), and 6 (paper). The LaTex mark-up is set to 20%, while references styles different from ABNT makes the service 5% more expensive. The cost of grammar correction is always 5 reais per page. The page value can also increase (R$ 1,00) if the option for general formatting is chosen.
+        </p>
+
+        <p>
+          Try your hand with the tool below and checkout some values.
+        </p>
+
     </div>
 
     <div class="budget-grid"> 
@@ -49,15 +77,6 @@
             <option value="no">Não</option>
           </select> 
 
-
-          <!-- formar ref? -->
-          <label for="fix_ref">Formatar referências:</label>
-          <select id="fix_ref" name="fix_ref">
-            <option value="nothing">---</option>
-            <option value="yes">Sim</option>
-            <option value="no">Não</option>
-          </select> 
-
           <!-- style ref -->
           <label for="style_ref">Estilo de referência:</label>
           <select id="style_ref" name="style_ref">
@@ -72,7 +91,7 @@
           <label for="doc">Tipo de Documento:</label>
           <select id="doc" name="doc">
             <option value="nothing">---</option>
-            <option value="latex">Latex</option>
+            <option value="latex">LaTex</option>
             <option value="msword">Microsoft Word</option>
           </select> 
     </div>
