@@ -1,4 +1,4 @@
-# word2tex
+# Word2Tex
 
 This is a software whose main goal is to automatically convert monographies, dissertations and thesis from docx to LaTex. Currently, the software is based on two command line tools. The code for each of this tools can be found in folders **2bib** and **wcit2bib** in this repository. The first tool create a bibtex file from a list of references in a docx document. The second tool, named **wcit2bib**, export word style in text body citations to the same kind of entry in Latex. Both tools can work independently and more details on their working can be found in the respective folders.
 
@@ -12,7 +12,7 @@ To run the whole software at once just type in command line:
 bash master.sh references.docx main.docx DEST
 ```
 
-Where `DEST` is the name of the target directory where `word2tex` will create two files. One file, named `main.tex`, is TEX file tjat contains the text body, the other file, `references.bib` is the bibtex file. After the creation of the TEX files you can navigate to DEST folder and generate a PDF using:
+Where `DEST` is the name of the target directory where **Word2Tex** will create two files. One file, named `main.tex`, is TEX file tjat contains the text body, the other file, `references.bib` is the bibtex file. After the creation of the TEX files you can navigate to DEST folder and generate a PDF using:
 
 ```bash
 latex main.tex
