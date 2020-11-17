@@ -22,3 +22,7 @@ bash wcit2bib PATH/main.docx DEST
 
 Where `PATH` is the location of your plain text word document and DEST is the destination folder where you want to save the `main.tex` file.
 
+### Next step
+
+Create a template based on abntTex example
+

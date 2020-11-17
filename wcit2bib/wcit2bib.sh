@@ -27,9 +27,6 @@ python get_raw_tex.py $word_document $output_path &&
 #get word citations
 python get_citations.py $output_path &&
 
-#create cross-reference database
-python create_citationsds.py $output_path &&
-
 #replace word citation for tex citations
 python replace_wcitations.py $output_path &&
 
@@ -40,7 +37,6 @@ retVal=$?
 echo "Removing redundant files"
 cd $output_path
 rm *csv
-rm *pkl
 
 if [[ $retVal -eq 0 ]]
 then

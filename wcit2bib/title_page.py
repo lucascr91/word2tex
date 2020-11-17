@@ -1,13 +1,12 @@
 from colorama import Fore, Style
 #add path to import to_bib module
 import sys
-sys.path.append("/home/lucas/automata/to_bib")
+sys.path.append("../to_bib")
 from to_bib import *
 import sys
 import os
 
 os.chdir(sys.argv[1])
-
 
 answer=input(Fore.YELLOW + "Do you want to add custom information in the title fields? (y/n) \n"+Style.RESET_ALL)
 a=True

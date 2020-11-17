@@ -33,11 +33,6 @@ tag_bib=[get_tag(k) for k in lista_bib]
 
 tag_text = [k.lower().replace(",","") for k in citations]
 
-citations=["("+citation.replace(",",", ")+")" for citation in citations]
-
-# for citation in citations:
-#     print(citation)
-
 df=pd.DataFrame({"word_citation":citations, "tag_text": tag_text})
 
 #get best match of a entry in text among all bib entries

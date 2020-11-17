@@ -7,7 +7,7 @@ import re
 import os
 import sys
 #add path to import to_bib module
-sys.path.append("/home/lucas/automata/to_bib")
+sys.path.append("../to_bib")
 from to_bib import *
 
 os.chdir(sys.argv[1])

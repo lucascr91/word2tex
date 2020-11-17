@@ -8,7 +8,12 @@ try:
 except:
     raise ValueError("Please, add word document")
 
-os.chdir(sys.argv[2])
+try:
+    new_path=sys.argv[2]
+except:
+    raise ValueError("Please, add the target path")
+
+os.chdir(new_path)
 #get paragraphs
 all_paragraphs = doc.paragraphs
 #remove empty paragraphs
