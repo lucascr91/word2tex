@@ -27,5 +27,5 @@ You must have a LaTex compiler locally installed in your computer to run the fir
 
 ### Next step
 
-Create a template based on abntTex example
+Create a new human classified reference sheet using abntTex package template
 
