@@ -13,6 +13,11 @@ try:
 except:
     raise ValueError("Please, add the target path")
 
+try:
+    number_chapter=sys.argv[3]
+except:
+    raise ValueError("Please, add the chapter number")
+
 os.chdir(new_path)
 #get paragraphs
 all_paragraphs = doc.paragraphs
@@ -31,34 +36,11 @@ for paragraph in paragraphs:
 #create escapes for latex
 full_text = full_text.replace("%","\%").replace("_","\_")
 #add text to template
-latex_template = """
-\\documentclass{{report}}
-\\usepackage[utf8]{{inputenc}}
+latex_template = "{}".format(full_text)
 
-\\usepackage[portuguese]{{babel}}
-\\usepackage[autostyle,portuguese=brazilian]{{csquotes}}
+os.system("mkdir chapter{}".format(number_chapter))
 
-\\usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{{biblatex}}
-\\addbibresource{{references.bib}}
-
-\\begin{{document}}
-
-\\input{{title_page}}
-
-{}
-
-\\printbibliography
-
-\\end{{document}}
-
-
-""".format(full_text)
-
-f = open("main.tex", "w")
+f = open("chapter{0}/chapter{0}.tex".format(number_chapter), "w")
 f.write(latex_template)
 f.close()
 print("Done")

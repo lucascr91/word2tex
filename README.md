@@ -24,3 +24,8 @@ If you want to create a MS Word document type instead:
 pandoc main.tex
 ```
 You must have a LaTex compiler locally installed in your computer to run the first command and `pandoc` to run the second. For the LaTex option, there is an alternative to local compilation. Can be more convenient for you to create a free account in Overleaf, upload the `DEST` folder content and create the PDF document from there.
+
+### Next step
+
+Create a template based on abntTex example
+

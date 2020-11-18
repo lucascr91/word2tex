@@ -3,14 +3,13 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 word_document=$1
 current_path=$(pwd)
+number_chapter=$3
 
 cd
 #goes to selected directory
 cd $2
 #get selected directory path
 output_path=$(pwd)
-#remove files different from references.bib
-find . ! -name 'references.bib' -type f -exec rm -f {} +
 echo "Checking if references.bib is in $output_path ..."
 if [[ -f references.bib ]]
 then
@@ -22,16 +21,13 @@ fi
 
 cd $current_path
 #create tex version from word doc
-python get_raw_tex.py $word_document $output_path &&
+python get_raw_tex.py $word_document $output_path $number_chapter&&
 
 #get word citations
-python get_citations.py $output_path &&
+python get_citations.py $output_path $number_chapter&&
 
 #replace word citation for tex citations
-python replace_wcitations.py $output_path &&
-
-#add title page
-python title_page.py $output_path
+python replace_wcitations.py $output_path $number_chapter
 retVal=$?
 
 echo "Removing redundant files"
