@@ -186,8 +186,8 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /home/lucas/automata/word2tex/template/chapter1/chapter1.tex
-INPUT /home/lucas/automata/word2tex/template/chapter1/chapter1.tex
+INPUT /home/lucas/automata/word2tex/template/text/text.tex
+INPUT /home/lucas/automata/word2tex/template/text/text.tex
 INPUT /home/lucas/automata/word2tex/template/main.ind
 INPUT /home/lucas/automata/word2tex/template/main.ind
 INPUT /home/lucas/automata/word2tex/template/main.aux

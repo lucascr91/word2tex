@@ -14,15 +14,9 @@ try:
 except:
     raise ValueError("Please, add the target path")
 
-try:
-    number_chapter=sys.argv[2]
-except:
-    raise ValueError("Please, add the chapter number")
-
-
 os.chdir(new_path)
 
-f =open("chapter{0}/chapter{0}.tex".format(number_chapter),"r")
+f =open("text/text.tex","r")
 tex = f.read()
 f.close()
 

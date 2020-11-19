@@ -3,7 +3,6 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 current_path=$(pwd)
 cd
-mkdir $2
 cd $2
 output_path=$(pwd)
 cd $current_path

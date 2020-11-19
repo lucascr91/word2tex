@@ -1,20 +1,20 @@
 # Fdb version 3
-["bibtex main"] 1605736085 "main.aux" "main.bbl" "main" 1605736086
+["bibtex main"] 1605798403 "main.aux" "main.bbl" "main" 1605798405
   "/usr/local/texlive/2020/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1357081713 5396 4eb260dac60f150ae608d45252853090 ""
   "/usr/local/texlive/2020/texmf-dist/bibtex/bst/abntex2/abntex2-alf.bst" 1543183680 60064 0819ac8568f9a482510a46e3a8a6f605 ""
-  "main.aux" 1605736086 1144 fd20cef7c158337c152494fcd84f9d7c "pdflatex"
+  "main.aux" 1605798404 1144 fd20cef7c158337c152494fcd84f9d7c "pdflatex"
   "references.bib" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["makeindex main.idx"] 1605730311 "main.idx" "main.ind" "main" 1605736086
-  "main.idx" 1605736086 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1605730311 "main.idx" "main.ind" "main" 1605798405
+  "main.idx" 1605798404 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
-  "main.ind"
   "main.ilg"
-["pdflatex"] 1605736085 "/home/lucas/automata/word2tex/template/main.tex" "/home/lucas/automata/word2tex/template/main.pdf" "main" 1605736086
-  "/home/lucas/automata/word2tex/template/main.aux" 1605736086 1144 fd20cef7c158337c152494fcd84f9d7c ""
-  "/home/lucas/automata/word2tex/template/main.tex" 1605736081 6643 8abdebf08fab0317707f29b80a6b5750 ""
+  "main.ind"
+["pdflatex"] 1605798403 "/home/lucas/automata/word2tex/template/main.tex" "/home/lucas/automata/word2tex/template/main.pdf" "main" 1605798405
+  "/home/lucas/automata/word2tex/template/main.aux" 1605798404 1144 fd20cef7c158337c152494fcd84f9d7c ""
+  "/home/lucas/automata/word2tex/template/main.tex" 1605798401 6635 b0d07d2212472055526700942cb1a525 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -109,16 +109,16 @@
   "/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1587765254 4814828 0dce0b19e005c2a7b2784567abb00307 ""
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1587765305 2432312 bdb9d0e4625c13d0a830d72126c1670e ""
   "/usr/local/texlive/2020/texmf.cnf" 1587765244 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "chapter1/chapter1.tex" 1605730427 0 d41d8cd98f00b204e9800998ecf8427e ""
   "elements/cover.tex" 1605727901 623 45261b480d8ea9030aeeb30cece88128 ""
-  "main.aux" 1605736086 1144 fd20cef7c158337c152494fcd84f9d7c "pdflatex"
+  "main.aux" 1605798404 1144 fd20cef7c158337c152494fcd84f9d7c "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
   "main.ind" 1605730311 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.tex" 1605736081 6643 8abdebf08fab0317707f29b80a6b5750 ""
+  "main.tex" 1605798401 6635 b0d07d2212472055526700942cb1a525 ""
+  "text/text.tex" 1605798398 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "main.log"
   "main.aux"
-  "/home/lucas/automata/word2tex/template/main.log"
   "main.idx"
-  "/home/lucas/automata/word2tex/template/main.pdf"
+  "/home/lucas/automata/word2tex/template/main.log"
   "main.pdf"
+  "/home/lucas/automata/word2tex/template/main.pdf"

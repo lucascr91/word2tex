@@ -10,29 +10,24 @@ try:
 except:
     raise ValueError("Please, add the target path")
 
-try:
-    number_chapter=sys.argv[2]
-except:
-    raise ValueError("Please, add the chapter number")
-
-
 os.chdir(new_path)
 
-f=open("chapter{0}/chapter{0}.tex".format(number_chapter),"r")
-tex = f.read()
-f.close()
+for file in ["text/text.tex","docx/main.tex"]:
+    f=open(file,"r")
+    tex = f.read()
+    f.close()
 
-df=pd.read_csv("crossref.csv")
+    df=pd.read_csv("crossref.csv")
 
-tex_dict={df["word_entry"][k]: df["best_match"][k] for k in range(len(df))}
+    tex_dict={df["word_entry"][k]: df["best_match"][k] for k in range(len(df))}
 
-for word, TEX in tex_dict.items():
-    word_regex=r'{}'.format(word.translate(str.maketrans({"(":"\(", ")":"\)"," ":"\s?"})))
-    TEX_regex=r'{}'.format(TEX.replace("\c","\\\c"))
-    tex=re.sub(word_regex, TEX_regex,tex)
+    for word, TEX in tex_dict.items():
+        word_regex=r'{}'.format(word.translate(str.maketrans({"(":"\(", ")":"\)"," ":"\s?"})))
+        TEX_regex=r'{}'.format(TEX.replace("\c","\\\c"))
+        tex=re.sub(word_regex, TEX_regex,tex)
 
-g = open("chapter{0}/chapter{0}.tex".format(number_chapter),"w")
-g.write(tex)
-g.close()
+    g = open(file,"w")
+    g.write(tex)
+    g.close()
 
 print("Done")

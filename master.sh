@@ -36,14 +36,16 @@ cd
 mkdir $3
 #enter output path
 cd $3
+#create docx folder
+mkdir docx
 #get address
 output_path=$(pwd)
 #go to home dir
 cd 
 #create template files
 cp ~/$template_path/*tex $output_path
-cp ~/$template_path/*csl $output_path
-cp ~/$template_path/*sh $output_path
+cp ~/$template_path/*csl $output_path/docx
+cp ~/$template_path/*sh $output_path/docx
 cp -r ~/$template_path/elements $output_path
 #back to working dir
 cd $current_path
@@ -57,11 +59,4 @@ cd ..
 #enter wcit
 cd wcit2bib
 echo "Running wcit2bib ..."
-bash wcit2bib.sh $2 $output_path $number_chapter
-echo "The next steps will work only if you have latex and pandoc installed in your path ..."
-#go to ouput dir
-cd 
-cd $output_path
-latex main.tex
-pandoc main.tex -t -o main.docx \
-    --bibliography references.bib --csl=abnt.csl
+bash wcit2bib.sh $2 $output_path
