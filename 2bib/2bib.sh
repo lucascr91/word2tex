@@ -17,14 +17,16 @@ python basic_model.py $output_path &&
 python get_bib.py $output_path basic
 retVal=$?
 
-echo "Removing redundant files from target directory."
-cd $output_path
-rm *csv
-echo "Done"
-
 if [[ $retVal -eq 0 ]]
 then
+    echo "Removing redundant files from target directory."
+    cd $output_path
+    rm *csv
+    echo "Done"
     echo "This step is finish. We just create a bibtex file. Now you should run wcit2bib to transform the word body text citations in TEX citations."
 else
     echo -e "${RED}Some error occurred. Bibtex file not created. Please, check warning and error messages above.${NC}"
+    cd
+    rm -r $output_path
+    exit 1
 fi

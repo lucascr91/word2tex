@@ -43,7 +43,7 @@ then
     cd ..
     echo "Removing redundant files"
     rm *csv
-    echo "This step is finish. We just create a TEX file and replace the word citations for TEX citations. Now you should compile the TEX files using standard TEX distributions (to get the PDF document)."
+    echo "This step is finish. We just create a TEX file, replace the word citations for TEX citations and create a word document. Now you should compile the TEX files using standard TEX distributions (to get the PDF document)."
 
 else
     echo -e "${RED}Some error occurred. TEX file not created and/or citations not replaced. Please, check warning and error messages above.${NC}"

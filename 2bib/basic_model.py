@@ -3,7 +3,7 @@
 print("Running k-neighborhood algorithm")
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import termplotlib as tpl
 import seaborn as sns
 import os
 import sys
@@ -32,11 +32,20 @@ y = df["target"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=101)
 
 from sklearn.neighbors import KNeighborsClassifier
-knn = KNeighborsClassifier(n_neighbors=6)
+number_nb=5
+knn = KNeighborsClassifier(n_neighbors=number_nb)
 knn.fit(X_train, y_train)
 pred = knn.predict(X_test)
 
 target_dict = {k: v for v, k in rep_target.items()}
+
+t_names=[]
+
+for k in np.unique(y_test):
+    t_names.append(target_dict[k])
+
+from sklearn.metrics import classification_report
+print(classification_report(y_test, pred, target_names=t_names))
 
 def get_kind(entry):
     length_elements = len(entry.split(". "))
@@ -49,6 +58,20 @@ def get_kind(entry):
     scaled_features = scaler.transform(tab)
     result = knn.predict(scaled_features)
     return target_dict[int(result)] 
+
+error_rate = []
+
+for i in range(1,40):
+    knn = KNeighborsClassifier(n_neighbors=i)
+    knn.fit(X_train, y_train)
+    pred_i = knn.predict(X_test)
+    error_rate.append(np.mean(pred_i != y_test))
+
+print("I'm using {} neighborhoods".format(str(number_nb)))
+fig = tpl.figure()
+fig.plot(range(1,40), error_rate)
+fig.show()
+
 
 user_df = pd.read_csv("references.csv")
 user_df["tipo"] = [get_kind(k) for k in user_df["obra"]]

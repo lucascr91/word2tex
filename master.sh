@@ -54,9 +54,15 @@ cd 2bib
 #run 2bib
 echo "Runing 2bib ..."
 bash 2bib.sh $ref_docx $output_path
-#back one dir
-cd ..
-#enter wcit
-cd wcit2bib
-echo "Running wcit2bib ..."
-bash wcit2bib.sh $2 $output_path
+retVal=$?
+if [[ $retVal -eq 0 ]]
+then 
+    #back one dir
+    cd ..
+    #enter wcit
+    cd wcit2bib
+    echo "Running wcit2bib ..."
+    bash wcit2bib.sh $2 $output_path
+else 
+    exit
+fi
