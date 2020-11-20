@@ -72,10 +72,5 @@ fig = tpl.figure()
 fig.plot(range(1,40), error_rate)
 fig.show()
 
-
-user_df = pd.read_csv("references.csv")
-user_df["tipo"] = [get_kind(k) for k in user_df["obra"]]
-user_df.to_csv("machine_classified.csv", index=False)
-
 print("Done")
 

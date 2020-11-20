@@ -31,5 +31,5 @@ while True:
 
 df.to_csv("human_classified.csv", index=False)
 
-print("I just saved the new entry. If you want to undo it, just open the file and drop the appropriate rows.")
 print(df.tail())
+print("I just saved the new entry. If you want to undo it, just open the file and drop the appropriate rows.")

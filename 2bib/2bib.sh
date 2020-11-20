@@ -21,7 +21,6 @@ if [[ $retVal -eq 0 ]]
 then
     echo "Removing redundant files from target directory."
     cd $output_path
-    rm *csv
     echo "Done"
     echo "This step is finish. We just create a bibtex file. Now you should run wcit2bib to transform the word body text citations in TEX citations."
 else
