@@ -36,7 +36,7 @@ y = df["target"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=101)
 
 from sklearn.neighbors import KNeighborsClassifier
-number_nb=5
+number_nb=28
 knn = KNeighborsClassifier(n_neighbors=number_nb)
 knn.fit(X_train, y_train)
 pred = knn.predict(X_test)

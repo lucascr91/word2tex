@@ -5,7 +5,12 @@ import sys
 sys.path.append("../to_bib")
 from to_bib import *
 
-os.chdir(sys.argv[1])
+try:
+    new_path=sys.argv[1]
+except:
+    raise ValueError("Please, add the target path")
+
+os.chdir(new_path)
 
 df=pd.read_csv("human_classified.csv")
 

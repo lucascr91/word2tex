@@ -11,7 +11,13 @@ import sys
 sys.path.append("../to_bib")
 from to_bib import *
 
-os.chdir(sys.argv[1])
+
+try:
+    new_path=sys.argv[1]
+except:
+    raise ValueError("Please, add the target path")
+
+os.chdir(new_path)
 
 df = pd.read_csv('human_classified.csv')
 df.rename({"tipo":"target"}, axis=1,inplace=True)
@@ -32,19 +38,20 @@ y = df["target"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.15, random_state=101)
 
 from sklearn.neighbors import KNeighborsClassifier
-number_nb=5
+number_nb=28
 knn = KNeighborsClassifier(n_neighbors=number_nb)
 knn.fit(X_train, y_train)
 pred = knn.predict(X_test)
 
 target_dict = {k: v for v, k in rep_target.items()}
 
-t_names=[]
-
-for k in np.unique(y_test):
-    t_names.append(target_dict[k])
-
 from sklearn.metrics import classification_report
+
+lista_pred=[k for k in np.unique(pred)]
+lista_ytest=[k for k in y_test.unique()]
+class_values=list(set(lista_pred+lista_ytest))
+t_names=[target_dict[k] for k in class_values]
+
 print(classification_report(y_test, pred, target_names=t_names))
 
 def get_kind(entry):
