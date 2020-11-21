@@ -4,7 +4,7 @@ This is a software whose main goal is to automatically convert monographies, dis
 
 It's easy to see that the two tools deal only with the problem of reference conversion. In the near future we will also add tools to make automatic the conversion of floats, like figures and tables. However, it's important to note that the current software version already supports the general formatting of document that includes cover, summary, page numbering, margins, and so on.
 
-Although the each tool can work separately, we create a bash file named `master.sh` whose function is run all tools in the right sequence and thus simplifying the user's work.
+Although each tool can work separately, we create a bash file named `master.sh` whose function is run all tools in the right sequence and thus simplifying the user's work.
 
 To run the whole software at once just type in command line:
 
