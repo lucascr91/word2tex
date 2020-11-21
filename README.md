@@ -12,7 +12,7 @@ To run the whole software at once just type in command line:
 bash master.sh references.docx main.docx DEST
 ```
 
-Where `DEST` is the name of the target directory where **Word2Tex** will create two files. One file, named `main.tex`, is TEX file tjat contains the text body, the other file, `references.bib` is the bibtex file. After the creation of the TEX files you can navigate to DEST folder and generate a PDF using:
+Where `DEST` is the name of the target directory where **Word2Tex** will create two files. One file, named `main.tex`, is TEX file that contains the text body, the other file, `references.bib` is the bibtex file. After the creation of the TEX files you can navigate to DEST folder and generate a PDF using:
 
 ```bash
 latex main.tex
