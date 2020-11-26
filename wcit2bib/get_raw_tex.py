@@ -2,6 +2,9 @@ print("Creating a TEX file from the word document")
 import docx
 import sys
 import os
+import pandas as pd
+import numpy as np
+
 
 try:
     doc = docx.Document(sys.argv[1])
@@ -13,6 +16,31 @@ try:
 except:
     raise ValueError("Please, add the target path")
 
+
+def to_bold(text):
+    return '\\textbf{{{}}} '.format(text)
+
+def to_italic(text):
+    return '\\textit{{{}}} '.format(text)
+
+def to_underline(text):
+    return '\\underline{{{}}} '.format(text)
+
+def run_df(para):
+    """
+    Create a dataframe where each row is a run and the columns are boolean values informing if the run is bold, underline, italic etc.
+    """
+    df= pd.DataFrame({"run":[k.text for k in para.runs],"bold":[k.bold for k in para.runs],
+    "italic":[k.bold for k in para.runs], "underline":[k.underline for k in para.runs]})
+    df['latex']=[to_bold(df['run'][k]) if (df['bold'][k]==True) & (df['italic'][k]==False) & (df['underline'][k]==False) else df['run'][k] for k in df.index]
+    df['latex']=[to_italic(df['run'][k]) if (df['bold'][k]==False) & (df['italic'][k]==True) & (df['underline'][k]==False) else df['latex'][k] for k in df.index]
+    df['latex']=[to_underline(df['run'][k]) if (df['bold'][k]==False) & (df['italic'][k]==False) & (df['underline'][k]==True) else df['latex'][k] for k in df.index]
+    df['latex']=[to_italic(to_bold(df['run'][k])) if (df['bold'][k]==True) & (df['italic'][k]==True) & (df['underline'][k]==False) else df['latex'][k] for k in df.index]
+    df['latex']=[to_underline(to_bold(df['run'][k])) if (df['bold'][k]==True) & (df['italic'][k]==False) & (df['underline'][k]==True) else df['latex'][k] for k in df.index]
+    df['latex']=[to_underline(to_italic(df['run'][k])) if (df['bold'][k]==False) & (df['italic'][k]==True) & (df['underline'][k]==True) else df['latex'][k] for k in df.index]
+    df['latex']=[to_bold(to_underline(to_italic(df['run'][k]))) if (df['bold'][k]==True) & (df['italic'][k]==True) & (df['underline'][k]==True) else df['latex'][k] for k in df.index]
+    return df
+
 os.chdir(new_path)
 #get paragraphs
 all_paragraphs = doc.paragraphs
@@ -22,11 +50,8 @@ paragraphs = [k for k in all_paragraphs if k.text!='']
 #join paragraphs and add \par keyword
 full_text = ''
 for paragraph in paragraphs:
-    if len(paragraph.text)>30:
-        full_text = full_text + "\n" + "\par " + paragraph.text.strip() + "\n"
-    else:
-        name_section = "{"+paragraph.text.strip()+"}"
-        full_text = full_text + "\n" + "\section{}".format(name_section) + "\n"
+    df=run_df(paragraph)
+    full_text = full_text + "\n" + "\par " + ''.join(df['latex'].to_list()) + "\n"
 
 #create escapes for latex
 full_text = full_text.replace("%","\%").replace("_","\_")
