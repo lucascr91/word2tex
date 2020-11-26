@@ -67,13 +67,16 @@ def get_authors(entry):
 
 def get_title(entry):
     elements=entry.replace("\xa0", " ").split('. ')
-    if len(elements[1])>2:
-        return elements[1]
-    elif len(elements[2])>2:
-        return elements[2]
-    elif len(elements[3])>2:
-        return elements[3]
-    else:
+    try:
+        if len(elements[1])>2:
+            return elements[1]
+        elif len(elements[2])>2:
+            return elements[2]
+        elif len(elements[3])>2:
+            return elements[3]
+        else:
+            return ''
+    except:
         return ''
         
 
